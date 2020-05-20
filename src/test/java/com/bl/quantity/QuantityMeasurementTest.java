@@ -82,4 +82,13 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor1, unitComparetor2);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void giveFeetAndInch_WhenZero_shouldTrue() throws QuantityMeasurementException {
+        double feet1 = 0.0,feet2 = 0.0;
+        UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
+        UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.INCH);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
 }
