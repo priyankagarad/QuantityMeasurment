@@ -119,4 +119,13 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(true,result);
     }
 
+    @Test
+    public void givenFeetAndInch_When12InchEqualsTo1Feet_shouldReturnTrue() throws QuantityMeasurementException {
+        double feet1 = 1.0,inch = 12.0;
+        UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
+        UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
+
 }
