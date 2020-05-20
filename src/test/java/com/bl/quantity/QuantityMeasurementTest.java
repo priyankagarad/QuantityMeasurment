@@ -35,4 +35,14 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor1, unitComparetor2);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenSameTypeWhenCompare_ShouldReturnTrue() {
+        double feet1 = 5.0,feet2 = 5.0;
+        UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
+        UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.FEET);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
+
 }
