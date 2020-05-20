@@ -1,4 +1,4 @@
-package com.bl.quantity;
+package com.bl.quantity.model;
 public class UnitComparetor {
     private double value;
 
