@@ -45,4 +45,14 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(true,result);
     }
 
+    @Test
+    public void givenInchAndInch_WhenCompareNull_shouldReturnFalse() throws QuantityMeasurementException {
+        UnitComparetor converterInch = new UnitComparetor(0, Length.INCH);
+        try {
+            boolean result = quantityMeasurement.compare(converterInch, null);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
+        }
+    }
+
 }
