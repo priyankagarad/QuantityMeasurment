@@ -19,9 +19,13 @@ public class UnitComparetor {
         return Double.compare(that.value, value) == 0;
     }
 
+    public double getValue() {
+        return value;
+    }
+
     public double addition(UnitComparetor unitComparetor, UnitComparetor unitComparetor2) {
         return unitComparetor.getValue()+unitComparetor2.getValue();
     }
 }
-}
+
 
