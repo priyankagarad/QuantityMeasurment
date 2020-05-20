@@ -235,4 +235,23 @@ public class QuantityMeasurementTest {
         double result = unitComparetor.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(7.56,result,0);
     }
+
+    @Test
+    public void givenLitresAndMl_WhenAddition_shouldReturResult() throws QuantityMeasurementException {
+        double ml = 1000,litre = 1;
+        UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
+        UnitComparetor unitComparetor2 = new UnitComparetor(ml,Length.ML);
+        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        Assert.assertEquals(2,result,0);
+    }
+
+    @Test
+    public void givenKgAndGrams_WhenCompare_ThenTrue() throws QuantityMeasurementException {
+        double kg = 1,grams = 1000;
+        UnitComparetor unitComparetor = new UnitComparetor(kg,Length.KILOGRAMS);
+        UnitComparetor unitComparetor2 = new UnitComparetor(grams,Length.GRAM);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
 }
+
