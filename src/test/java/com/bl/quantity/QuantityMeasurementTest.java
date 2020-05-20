@@ -164,4 +164,13 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(true,result);
     }
 
+    @Test
+    public void givenInchAndYD_When1YardNotEqualsTo3Inch_ShouldReturnTrue() throws QuantityMeasurementException {
+        double inch = 3,yard = 1;
+        UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
+        UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
+        boolean result = quantityMeasurement.compare(unitComparetor2,unitComparetor);
+        Assert.assertEquals(true,result);
+    }
+
 }
