@@ -1,5 +1,4 @@
 package com.bl.quantity;
-import sun.security.util.Length;
 public class UnitComparetor {
 
     private double value;
@@ -9,7 +8,7 @@ public class UnitComparetor {
     }
 
     public double compare(double value,Length length){
-        return value * length.length();
+        return value * length.getValue();
     }
 
     @Override

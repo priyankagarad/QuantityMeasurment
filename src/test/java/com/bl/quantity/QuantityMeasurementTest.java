@@ -26,4 +26,13 @@ public class QuantityMeasurementTest {
         QuantityMeasurment referenceCheck=new QuantityMeasurment();
         Assert.assertEquals(quantityMeasurement,referenceCheck);
     }
+
+    @Test
+    public void givenSameTypeWhenCompare_when_equal_ShouldReturnTrue() {
+        double feet1 = 2, feet2 = 2;
+        UnitComparetor unitComparetor1 = new UnitComparetor(feet1, Length.FEET);
+        UnitComparetor unitComparetor2 = new UnitComparetor(feet2, Length.FEET);
+        boolean result = quantityMeasurement.compare(unitComparetor1, unitComparetor2);
+        Assert.assertEquals(true, result);
+    }
 }
