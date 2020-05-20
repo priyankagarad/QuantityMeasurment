@@ -262,5 +262,14 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
+
+    @Test
+    public void givenFahrenheitAndCelsius_WhenCompare_ThenTrue() throws QuantityMeasurementException {
+        double fahrenheit = 212,celsius = 100;
+        UnitComparetor unitComparetor = new UnitComparetor(fahrenheit,Length.FAHRENHEIT);
+        UnitComparetor unitComparetor2 = new UnitComparetor(celsius,Length.CELSIUS);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
 }
 
