@@ -14,9 +14,16 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetValue_WhenNull_ThenShouldReturnFalse()
+    public void givenFeetValue_WhenNull_ThenShouldReturnFalse() throws  QuantityMeasurementException
     {
         boolean checkNullValue=quantityMeasurement.equals(null);
         Assert.assertEquals(false,checkNullValue);
+    }
+
+    @Test
+    public void givenRefrenceObject_WhenEqual_ShouldReturnTrue() throws QuantityMeasurementException
+    {
+        QuantityMeasurment referenceCheck=new QuantityMeasurment();
+        Assert.assertEquals(quantityMeasurement,referenceCheck);
     }
 }
