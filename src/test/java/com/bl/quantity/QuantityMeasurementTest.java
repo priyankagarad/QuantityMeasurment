@@ -1,12 +1,11 @@
 package com.bl.quantity;
-
 import org.junit.Assert;
 import org.junit.Test;
 public class QuantityMeasurementTest {
     QuantityMeasurment quantityMeasurement = new QuantityMeasurment();
 
     @Test
-    public void givenzeroFeetAndLength_WhenCompair_ThenTruQuantityMeasurementExceptione() {
+    public void givenZeroFeetAndLength_WhenCompare_ThenTruQuantityMeasurementException(){
         UnitComparetor unitComparetor = new UnitComparetor(0, Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(0, Length.FEET);
         boolean result = quantityMeasurement.compare(unitComparetor, unitComparetor2);
@@ -14,17 +13,23 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetValue_WhenNull_ThenShouldReturnFalse() throws  QuantityMeasurementException
-    {
-        boolean checkNullValue=quantityMeasurement.equals(null);
-        Assert.assertEquals(false,checkNullValue);
+    public void givenFeetNull_WhenCompare_shouldReturnFalse() {
+        UnitComparetor converterInch = new UnitComparetor(0, Length.FEET);
+        try {
+            boolean result = quantityMeasurement.compare(converterInch, null);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, e.type);
+        }
     }
 
     @Test
-    public void givenRefrenceObject_WhenEqual_ShouldReturnTrue()
-    {
-        QuantityMeasurment referenceCheck=new QuantityMeasurment();
-        Assert.assertEquals(quantityMeasurement,referenceCheck);
+    public void givenFeetAndFeetReference_WhenCompare_shouldReturnTrue() throws QuantityMeasurementException {
+        Double feet = 2.0;
+        Double value = feet;
+        UnitComparetor unitComparetor = new UnitComparetor(value,Length.FEET);
+        UnitComparetor unitComparetor2 = new UnitComparetor(value,Length.FEET);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
     }
 
     @Test
@@ -56,7 +61,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndInchReference_WhenCompare_shouldReturnTrue() throws QuantityMeasurementException {
+    public void givenInchAndInchReference_WhenCompare_shouldReturnTrue(){
         Double feet = 2.0;
         Double value = feet;
         UnitComparetor unitComparetor = new UnitComparetor(value,Length.INCH);
@@ -165,12 +170,12 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndYD_When1YardNotEqualsTo3Inch_ShouldReturnTrue() throws QuantityMeasurementException {
+    public void givenInchAndYD_When1YardNotEqualsTo3Inch_ShouldReturnFalse() throws QuantityMeasurementException {
         double inch = 3,yard = 1;
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         boolean result = quantityMeasurement.compare(unitComparetor2,unitComparetor);
-        Assert.assertEquals(true,result);
+        Assert.assertEquals(false,result);
     }
 
     @Test
@@ -228,7 +233,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenValuemInLiter_WhenAddition_shouldReturResult() throws QuantityMeasurementException {
+    public void givenValueInLiter_WhenAddition_shouldReturResult() throws QuantityMeasurementException {
         double gallon = 1,litre = 3.78;
         UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
         UnitComparetor unitComparetor2 = new UnitComparetor(gallon,Length.GALLON);
@@ -262,6 +267,16 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
+
+    @Test
+    public void given1TonneAnd1000kgs_WhenAdd_shouldReturn1001() throws QuantityMeasurementException {
+        double gm = 1000,tonne = 1;
+        UnitComparetor unitComparetor = new UnitComparetor(gm,Length.GRAM);
+        UnitComparetor unitComparetor2 = new UnitComparetor(tonne,Length.TONNE);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
+        Assert.assertEquals(1001,result,0);
+    }
+
 
     @Test
     public void givenFahrenheitAndCelsius_WhenCompare_ThenTrue() throws QuantityMeasurementException {

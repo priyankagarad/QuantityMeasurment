@@ -28,8 +28,10 @@ public class UnitComparetor {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         UnitComparetor that = (UnitComparetor) o;
         return Double.compare(that.value, value) == 0;
     }
@@ -41,8 +43,6 @@ public class UnitComparetor {
     public double getValue() {
         return value;
     }
-
-
 }
 
 

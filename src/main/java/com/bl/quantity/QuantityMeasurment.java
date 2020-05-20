@@ -12,9 +12,9 @@ public class QuantityMeasurment {
     }
 
     /**+
-     * @purpose:addition Function add the value of different and same Unit
-     * @param unitComparetor:Reference1
-     * @param unitComparetor2:Reference2
+     * @purpose:addition Function add Two value
+     * @param :unitComparatore1
+     * @param :unitComparetor2
      * @return
      */
 

@@ -5,7 +5,6 @@ public class QuantityMeasurementException extends RuntimeException {
     }
 
     public ExceptionType type;
-
     public QuantityMeasurementException(ExceptionType type,String message) {
         super(message);
         this.type = type;
