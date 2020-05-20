@@ -253,5 +253,14 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
+
+    @Test
+    public void givenTonneAndkgs_WhenCompare_shouldReturnTrue() throws QuantityMeasurementException {
+        double kgs = 1000,tonne = 1;
+        UnitComparetor unitComparetor = new UnitComparetor(kgs,Length.KILOGRAMS);
+        UnitComparetor unitComparetor2 = new UnitComparetor(tonne,Length.TONNE);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
 }
 
