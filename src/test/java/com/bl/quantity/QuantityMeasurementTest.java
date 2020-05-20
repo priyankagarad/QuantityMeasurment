@@ -7,9 +7,9 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenFitAndLength_WhenCompair_ThenTrue() {
-        int fit = 2;
+        int feet = 2;
         int inch = 24;
-        boolean result = quantityMeasurement.checkQuantity(fit,inch);
+        boolean result = quantityMeasurement.checkFeetQuantity(feet,inch);
         Assert.assertEquals(true,result);
     }
 }
