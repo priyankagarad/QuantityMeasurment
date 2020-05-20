@@ -74,4 +74,12 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(true,result);
     }
 
+    @Test
+    public void givenSameInchTypeWhenCompare_whenequal_ShouldReturnTrue() {
+        double inch1 = 2, inch2 = 2;
+        UnitComparetor unitComparetor1 = new UnitComparetor(inch1, Length.INCH);
+        UnitComparetor unitComparetor2 = new UnitComparetor(inch2, Length.INCH);
+        boolean result = quantityMeasurement.compare(unitComparetor1, unitComparetor2);
+        Assert.assertEquals(true, result);
+    }
 }
