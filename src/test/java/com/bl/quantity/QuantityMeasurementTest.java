@@ -65,4 +65,13 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(true,result);
     }
 
+    @Test
+    public void givenInchAndInch_WhenSameType_shouldReturnTrue() throws QuantityMeasurementException {
+        double feet1 = 24,feet2 = 24;
+        UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.INCH);
+        UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.INCH);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
+
 }
