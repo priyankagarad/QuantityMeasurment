@@ -8,7 +8,7 @@ public enum Length {
         this.value = value;
     }
 
-    public double getvalue() {
+    public double getValue() {
         return value;
     }
 }

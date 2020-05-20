@@ -4,11 +4,12 @@ public class UnitComparetor {
 
     private double value;
 
-    public UnitComparetor(double value, Length length) {
-        this.value = compare(value,length);
+    public UnitComparetor( double value, Length length) {
+        this.value = compare(value, length);
     }
+
     public double compare(double value,Length length){
-        return value * length.getValue();
+        return value * length.length();
     }
 
     @Override
