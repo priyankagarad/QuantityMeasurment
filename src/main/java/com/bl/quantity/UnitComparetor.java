@@ -18,5 +18,10 @@ public class UnitComparetor {
         UnitComparetor that = (UnitComparetor) o;
         return Double.compare(that.value, value) == 0;
     }
+
+    public double addition(UnitComparetor unitComparetor, UnitComparetor unitComparetor2) {
+        return unitComparetor.getValue()+unitComparetor2.getValue();
+    }
+}
 }
 
