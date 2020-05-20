@@ -6,10 +6,9 @@ public class QuantityMeasurementTest {
     QuantityMeasurment quantityMeasurement = new QuantityMeasurment();
 
     @Test
-    public void givenFitAndLength_WhenCompair_ThenTrue() {
-        int feet = 2;
-        int inch = 24;
-        boolean result = quantityMeasurement.checkFeetQuantity(feet,inch);
+    public void givenzeroFeetAndLength_WhenCompair_ThenTrue() {
+        UnitComparetor unitComparetor = new UnitComparetor(0,Length.FEET);
+        UnitComparetor unitComparetor2 = new UnitComparetor(0,Length.FEET);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
-    }
 }

@@ -1,11 +1,6 @@
 package com.bl.quantity;
 public class QuantityMeasurment {
-    private int inch = 12;
-    public Boolean checkFeetQuantity(Integer feet1,Integer feet2) {
-
-        if (feet1 == feet1)
-            return true;
-        else
-            return false;
+    public boolean compare(UnitComparetor unitComparetor1,UnitComparetor unitComparetor2){
+        return unitComparetor1.equals(unitComparetor2);
     }
 }
