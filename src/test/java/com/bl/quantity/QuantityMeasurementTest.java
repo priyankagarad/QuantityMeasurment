@@ -201,7 +201,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndFeet_WhenAddition_ThenTrue() throws QuantityMeasurementException {
+    public void givenFeetAndFeet_WhenAddition_shouldReturnTwentyFour() throws QuantityMeasurementException {
         double feet = 1,feet2 = 1;
         UnitComparetor unitComparetor = new UnitComparetor(feet,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.FEET);
@@ -210,11 +210,20 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndCentimeter_WhenAddition_ThenTrue() throws QuantityMeasurementException {
+    public void givenInchAndCentimeter_WhenAddition_shouldReturnThree() throws QuantityMeasurementException {
         double inch = 2,cm = 2.5;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(cm,Length.CENTIMETER);
         double result = unitComparetor.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(3,result,0);
+    }
+
+    @Test
+    public void givenLitreAndMl_WhenCompare_shouldReturnTrue() throws QuantityMeasurementException {
+        double litre = 1,ml = 1000;
+        UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
+        UnitComparetor unitComparetor2 = new UnitComparetor(ml,Length.ML);
+        Boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
     }
 }
