@@ -55,4 +55,14 @@ public class QuantityMeasurementTest {
         }
     }
 
+    @Test
+    public void givenInchAndInchReference_WhenCompare_shouldReturnTrue() throws QuantityMeasurementException {
+        Double feet = 2.0;
+        Double value = feet;
+        UnitComparetor unitComparetor = new UnitComparetor(value,Length.INCH);
+        UnitComparetor unitComparetor2 = new UnitComparetor(value,Length.INCH);
+        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
+        Assert.assertEquals(true,result);
+    }
+
 }
