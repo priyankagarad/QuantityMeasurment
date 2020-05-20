@@ -187,7 +187,7 @@ public class QuantityMeasurementTest {
         double inch1 = 2,inch2 =2;
         UnitComparetor unitComparetor = new UnitComparetor(inch1,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch2,Length.INCH);
-        double result =unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result =quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(4,result,0);
     }
 
@@ -196,7 +196,7 @@ public class QuantityMeasurementTest {
         double feet = 1,inch =2;
         UnitComparetor unitComparetor = new UnitComparetor(feet,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
-        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(14,result,0);
     }
 
@@ -205,7 +205,7 @@ public class QuantityMeasurementTest {
         double feet = 1,feet2 = 1;
         UnitComparetor unitComparetor = new UnitComparetor(feet,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.FEET);
-        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(24,result,0);
     }
 
@@ -214,7 +214,7 @@ public class QuantityMeasurementTest {
         double inch = 2,cm = 2.5;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(cm,Length.CENTIMETER);
-        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(3,result,0);
     }
 
@@ -232,7 +232,7 @@ public class QuantityMeasurementTest {
         double gallon = 1,litre = 3.78;
         UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
         UnitComparetor unitComparetor2 = new UnitComparetor(gallon,Length.GALLON);
-        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(7.56,result,0);
     }
 
@@ -241,7 +241,7 @@ public class QuantityMeasurementTest {
         double ml = 1000,litre = 1;
         UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
         UnitComparetor unitComparetor2 = new UnitComparetor(ml,Length.ML);
-        double result = unitComparetor.addition(unitComparetor,unitComparetor2);
+        double result = quantityMeasurement.addition(unitComparetor,unitComparetor2);
         Assert.assertEquals(2,result,0);
     }
 
