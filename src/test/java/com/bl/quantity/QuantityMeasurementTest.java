@@ -8,7 +8,7 @@ public class QuantityMeasurementTest {
     QuantityMeasurment quantityMeasurement = new QuantityMeasurment();
 
     @Test
-    public void givenZeroFeetAndLength_WhenCompare_ThenTruQuantityMeasurementException(){
+    public void givenZeroFeetAndZeroFeet_WhenCompare_shouldRetunTrue(){
         UnitComparetor unitComparetor = new UnitComparetor(0, Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(0, Length.FEET);
         boolean result = quantityMeasurement.compare(unitComparetor, unitComparetor2);
@@ -36,7 +36,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameTypeWhenCompare_when_equal_ShouldReturnTrue() {
+    public void givenFeetTypeWhenCompare_whenEqual_ShouldReturnTrue() {
         double feet1 = 2, feet2 = 2;
         UnitComparetor unitComparetor1 = new UnitComparetor(feet1, Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet2, Length.FEET);
@@ -45,7 +45,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameTypeWhenCompare_ShouldReturnTrue() {
+    public void givenSameValue_WhenCompare_ShouldReturnTrue() {
         double feet1 = 5.0,feet2 = 5.0;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.FEET);
@@ -54,7 +54,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndInch_WhenCompareNull_shouldReturnFalse() {
+    public void givenInchValue_WhenCompareWithNull_shouldReturnFalse() {
         UnitComparetor converterInch = new UnitComparetor(0, Length.INCH);
         try {
             boolean result = quantityMeasurement.compare(converterInch, null);
@@ -83,7 +83,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameInchTypeWhenCompare_whenEqual_ShouldReturnTrue() {
+    public void givenSameInchValueCompare_whenEqual_ShouldReturnTrue() {
         double inch1 = 2, inch2 = 2;
         UnitComparetor unitComparetor1 = new UnitComparetor(inch1, Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch2, Length.INCH);
@@ -92,16 +92,16 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void giveFeetAndInch_WhenZero_shouldTrue() throws QuantityMeasurementException {
-        double feet1 = 0.0,feet2 = 0.0;
+    public void giveFeetAndInch_WhenZero_shouldReturnTrue()  {
+        double feet1 = 0.0,inch = 0.0;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
-        UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.INCH);
+        UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
 
     @Test
-    public void givenFeetAndInchValue_WhenNotEqualTo1_ShouldReturnFalse() {
+    public void givenOneFeetAndOneInchValue_WhenNotEqual_ShouldReturnFalse() {
         double feet1 = 1.0,inch = 1.0;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
@@ -110,7 +110,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndFeet_WhenNotEqualTo1_1_ThFalse() {
+    public void givenOneInchAndOneFeet_WhenNotEqual_shouldReturnFalse() {
         double feet1 = 1.0,inch = 1.0;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet1,Length.FEET);
@@ -119,7 +119,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInch_When1FeetEqulsTo12Inch_shouldReturnTrue()  {
+    public void given1FeetAnd12Inch_WhenEqual_shouldReturnTrue()  {
         double feet1 = 1.0,inch = 12.0;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
@@ -128,7 +128,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInch_When12InchEqualsTo1Feet_shouldReturnTrue()  {
+    public void given12InchAnd1Feet_WhenEqual_shouldReturnTrue()  {
         double feet1 = 1.0,inch = 12.0;
         UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
@@ -137,7 +137,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndYard_When3FeetEqualsTo1YD_shouldReturnTrue()  {
+    public void given3FeetAnd1Yard_WhenEqual_shouldReturnTrue()  {
         double feet1 = 3,yard = 1;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
@@ -146,7 +146,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndYard_When1FeetNotEqualsTo1YD_shouldReturnFalse()  {
+    public void given1FeetAnd1Yard_WhenNotEqual_shouldReturnFalse()  {
         double feet1 = 1,yard = 1;
         UnitComparetor unitComparetor = new UnitComparetor(feet1,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
@@ -155,7 +155,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndYard_When1InchNotEqulsTo1YD_ThenFalse()  {
+    public void given1InchAnd1Yard_WhenNotEqual_shouldReturnFalse()  {
         double inch = 1,yard = 1;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
@@ -164,7 +164,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndYD_When1YardNotEqulsTo36Inch_ShouldReturnTruer()  {
+    public void given1YDAnd36in_WhenEqual_ShouldReturnTrue()  {
         double inch = 36,yard = 1;
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
@@ -173,16 +173,16 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndYD_When1YardNotEqualsTo3Inch_ShouldReturnFalse()  {
-        double inch = 3,yard = 1;
+    public void given36InchAnd1YD_WhenEqual_ShouldReturnTrue()  {
+        double inch = 36,yard = 1;
         UnitComparetor unitComparetor2 = new UnitComparetor(yard,Length.YARD);
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         boolean result = quantityMeasurement.compare(unitComparetor2,unitComparetor);
-        Assert.assertEquals(false,result);
+        Assert.assertEquals(true,result);
     }
 
     @Test
-    public void givenInchAndCentimeter_When1InchTo5Centimeter_ThenTrue()  {
+    public void given2InchAnd5Centimeter_whenEqual_shouldReturnTrue()  {
         double inch = 2,centimeter = 5;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(centimeter,Length.CENTIMETER);
@@ -191,7 +191,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLingth_WhenAddition_ThenTrue()  {
+    public void given2inchAnd2inch_WhenAdd_shouldReturnResult()  {
         double inch1 = 2,inch2 =2;
         UnitComparetor unitComparetor = new UnitComparetor(inch1,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch2,Length.INCH);
@@ -200,7 +200,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInch_WhenAddition_shouldReturnFourteen()  {
+    public void given1FeetAnd2Inch_WhenAddition_shouldReturnResult()  {
         double feet = 1,inch =2;
         UnitComparetor unitComparetor = new UnitComparetor(feet,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(inch,Length.INCH);
@@ -209,7 +209,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndFeet_WhenAddition_shouldReturnTwentyFour()  {
+    public void given1FeetAnd1Feet_WhenAddition_shouldReturnResult()  {
         double feet = 1,feet2 = 1;
         UnitComparetor unitComparetor = new UnitComparetor(feet,Length.FEET);
         UnitComparetor unitComparetor2 = new UnitComparetor(feet2,Length.FEET);
@@ -218,7 +218,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndCentimeter_WhenAddition_shouldReturnThree()  {
+    public void giveninchAndCentimeter_WhenAddition_shouldReturnResult()  {
         double inch = 2,cm = 2.5;
         UnitComparetor unitComparetor = new UnitComparetor(inch,Length.INCH);
         UnitComparetor unitComparetor2 = new UnitComparetor(cm,Length.CENTIMETER);
@@ -236,7 +236,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenValueInLiter_WhenAddition_shouldReturnResult()  {
+    public void givenGallonAndLiter_whenAddition_shouldReturnResult()  {
         double gallon = 1,litre = 3.78;
         UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
         UnitComparetor unitComparetor2 = new UnitComparetor(gallon,Length.GALLON);
@@ -245,7 +245,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLitresAndMl_WhenAddition_shouldReturResult()  {
+    public void given1LitresAnd1000Ml_WhenAddition_shouldReturnResult()  {
         double ml = 1000,litre = 1;
         UnitComparetor unitComparetor = new UnitComparetor(litre,Length.LITRE);
         UnitComparetor unitComparetor2 = new UnitComparetor(ml,Length.ML);
@@ -254,19 +254,10 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenKgAndGrams_WhenCompare_ThenTrue()  {
+    public void givenKgAndGrams_WhenCompare_shouldReturnTrue()  {
         double kg = 1,grams = 1000;
         UnitComparetor unitComparetor = new UnitComparetor(kg,Length.KILOGRAMS);
         UnitComparetor unitComparetor2 = new UnitComparetor(grams,Length.GRAM);
-        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
-        Assert.assertEquals(true,result);
-    }
-
-    @Test
-    public void givenTonneAndkgs_WhenCompare_shouldReturnTrue()  {
-        double kgs = 1000,tonne = 1;
-        UnitComparetor unitComparetor = new UnitComparetor(kgs,Length.KILOGRAMS);
-        UnitComparetor unitComparetor2 = new UnitComparetor(tonne,Length.TONNE);
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
@@ -281,15 +272,6 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFahrenheitAndCelsius_WhenCompare_shouldReturnFalse(){
-        double fahrenheit = -148,celsius = -100;
-        UnitComparetor unitComparetor = new UnitComparetor(fahrenheit,Length.FAHRENHEIT);
-        UnitComparetor unitComparetor2 = new UnitComparetor(celsius,Length.CELSIUS);
-        boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
-        Assert.assertEquals(false,result);
-    }
-    
-    @Test
     public void givenFahrenheitAndCelsius_WhenCompare_shouldReturn() {
         double fahrenheit = 212,celsius = 100;
         UnitComparetor unitComparetor = new UnitComparetor(fahrenheit,Length.FAHRENHEIT);
@@ -297,7 +279,5 @@ public class QuantityMeasurementTest {
         boolean result = quantityMeasurement.compare(unitComparetor,unitComparetor2);
         Assert.assertEquals(true,result);
     }
-
-
 }
 

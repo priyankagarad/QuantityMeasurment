@@ -9,6 +9,13 @@ import com.bl.quantity.exception.QuantityMeasurementException;
 import com.bl.quantity.model.UnitComparetor;
 
 public class QuantityMeasurment {
+    /**+
+     * @purpose:compare two object
+     * @param :unitComparetor1
+     * @param :unitComparetor2
+     * @return:return true or false
+     * @throws QuantityMeasurementException
+     */
     public boolean compare(UnitComparetor unitComparetor1, UnitComparetor unitComparetor2) throws QuantityMeasurementException {
         if (unitComparetor1 == null || unitComparetor2 == null)
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL_POINTER_EXCEPTION, "Null Object");

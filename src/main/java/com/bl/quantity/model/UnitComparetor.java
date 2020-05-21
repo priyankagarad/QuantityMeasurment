@@ -4,8 +4,8 @@ public class UnitComparetor {
 
     /**+
      * @purpose:Constructor pass two parameter
-     * @param value:variable
-     * @param length:unit value
+     * @param :value
+     * @param :length
      */
     public UnitComparetor( double value, Length length) {
         this.value = compare(value, length);
